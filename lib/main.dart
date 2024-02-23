@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:softcoop/screens/log_in.dart';
+import 'package:softcoop/screens/trajectory.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LogInScreen(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const LogInScreen(),
+        "/mi-coop": (context) => const TrajectoryScreen(),
+      },
     );
   }
 }

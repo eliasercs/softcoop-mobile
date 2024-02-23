@@ -93,7 +93,9 @@ class _LogInBody extends StatelessWidget {
               children: [
                 Button(
                   valueBtn: "Acceder",
-                  press: () {},
+                  press: () {
+                    Navigator.pushNamed(context, "/mi-coop");
+                  },
                 ),
                 const Text(
                   "¿Ha olvidado su contraseña?",
