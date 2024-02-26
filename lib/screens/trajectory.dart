@@ -146,15 +146,18 @@ class _TrajectoryEvents extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     List element = _data[year];
     List<Widget> items = List.generate(element.length, (index) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            element[index]["name"],
-            style: const TextStyle(fontFamily: "Poppins", fontSize: 16),
-          ),
-          Text(element[index]["fecha"])
-        ],
+      return Container(
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              element[index]["name"],
+              style: const TextStyle(fontFamily: "Poppins", fontSize: 16),
+            ),
+            Text(element[index]["fecha"])
+          ],
+        ),
       );
     });
     return Container(
