@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:softcoop/screens/dashboard.dart';
 import 'package:softcoop/screens/log_in.dart';
+import 'package:softcoop/screens/settings.dart';
 import 'package:softcoop/screens/trajectory.dart';
 
 void main() {
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => const LogInScreen(),
         "/dashboard": (context) => const DashBoard(),
         "/mi-coop": (context) => const TrajectoryScreen(),
+        "/settings": (context) => const Settings(),
       },
     );
   }

@@ -18,7 +18,7 @@ class DashBoard extends StatelessWidget {
         ),
       ),
       body: Container(
-        color: Color(0xFFEDF1F3),
+        color: const Color(0xFFEDF1F3),
         height: size.height,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
