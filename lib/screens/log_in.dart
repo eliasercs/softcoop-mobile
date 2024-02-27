@@ -94,7 +94,7 @@ class _LogInBody extends StatelessWidget {
                 Button(
                   valueBtn: "Acceder",
                   press: () {
-                    Navigator.pushNamed(context, "/mi-coop");
+                    Navigator.pushNamed(context, "/dashboard");
                   },
                 ),
                 const Text(

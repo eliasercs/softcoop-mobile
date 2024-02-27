@@ -2,21 +2,24 @@ import 'package:flutter/material.dart';
 
 class TextInput extends StatelessWidget {
   final String labelTxt;
-  final String placeholder;
+  final String? placeholder;
   final Icon? icon;
   final bool? enabled;
+  final String? initialValue;
 
   const TextInput(
       {super.key,
       required this.labelTxt,
-      required this.placeholder,
+      this.placeholder,
       this.icon,
-      this.enabled});
+      this.enabled,
+      this.initialValue});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       autofocus: false,
+      initialValue: initialValue,
       decoration: InputDecoration(
           border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -32,7 +35,7 @@ class TextInput extends StatelessWidget {
           fillColor: const Color(0xFFF5F5F5),
           prefixIcon: icon,
           prefixIconColor: const Color(0xFF737373),
-          hintText: placeholder,
+          hintText: placeholder ?? "",
           focusColor: const Color(0xFF38B549),
           hintStyle:
               const TextStyle(color: Color(0xFF737373), fontFamily: "Poppins")),

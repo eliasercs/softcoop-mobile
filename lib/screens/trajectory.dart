@@ -28,18 +28,26 @@ class TrajectoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: const Color(0xFF172F3E),
           leading: IconButton(
-              onPressed: () {
-                Navigator.popAndPushNamed(context, "/");
-              },
-              icon: const Icon(Icons.keyboard_arrow_left)),
+            onPressed: () {
+              Navigator.popAndPushNamed(context, "/dashboard");
+            },
+            icon: const Icon(Icons.keyboard_arrow_left),
+            color: Colors.white,
+          ),
           title: const Text(
             "Mi coop",
-            style: TextStyle(fontFamily: "Poppins", fontSize: 18),
+            style: TextStyle(
+                fontFamily: "Poppins", fontSize: 18, color: Colors.white),
           ),
           centerTitle: true,
           actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.add_to_queue)),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.add_to_queue),
+              color: Colors.white,
+            ),
           ],
         ),
         body: _MiCoopContainer());

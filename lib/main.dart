@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:softcoop/screens/dashboard.dart';
 import 'package:softcoop/screens/log_in.dart';
 import 'package:softcoop/screens/trajectory.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => const LogInScreen(),
+        "/dashboard": (context) => const DashBoard(),
         "/mi-coop": (context) => const TrajectoryScreen(),
       },
     );
