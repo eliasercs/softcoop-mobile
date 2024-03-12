@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:softcoop/api/auth.dart';
+import 'package:softcoop/services/login.dart';
 import 'package:softcoop/widgets/buttons.dart';
 import 'package:softcoop/widgets/inputs.dart';
 
@@ -45,8 +47,18 @@ class _LogInHeader extends StatelessWidget {
   }
 }
 
-class _LogInBody extends StatelessWidget {
+class _LogInBody extends StatefulWidget {
   const _LogInBody({super.key});
+
+  @override
+  State<_LogInBody> createState() => _LogInBodyState();
+}
+
+class _LogInBodyState extends State<_LogInBody> {
+  final _formKey = GlobalKey<FormState>();
+  String runSocio = "";
+  String runCooperativa = "";
+  String password = "";
 
   @override
   Widget build(BuildContext context) {
@@ -65,22 +77,35 @@ class _LogInBody extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
           Form(
+            key: _formKey,
             child: SizedBox(
               height: size.height * 0.25,
-              child: const Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextInput(
                     labelTxt: "Rut Cooperativa",
-                    placeholder: "Hola mundo",
+                    placeholder: "12.345.678-9",
+                    onChange: (value) {
+                      runCooperativa = value;
+                      setState(() {});
+                    },
                   ),
                   TextInput(
                     labelTxt: "Rut Socio",
-                    placeholder: "Hola mundo",
+                    placeholder: "12.345.678-9",
+                    onChange: (value) {
+                      runSocio = value;
+                      setState(() {});
+                    },
                   ),
                   TextInput(
                     labelTxt: "Contraseña",
                     placeholder: "****",
+                    onChange: (value) {
+                      password = value;
+                      setState(() {});
+                    },
                   ),
                 ],
               ),
@@ -93,8 +118,29 @@ class _LogInBody extends StatelessWidget {
               children: [
                 Button(
                   valueBtn: "Acceder",
-                  press: () {
-                    Navigator.pushNamed(context, "/dashboard");
+                  press: () async {
+                    if (_formKey.currentState!.validate()) {
+                      Map<String, dynamic> data = {
+                        "runCoop": runCooperativa,
+                        "runSocio": runSocio,
+                        "password": password
+                      };
+                      final response = await Auth().signIn(data);
+
+                      if (response["ok"]) {
+                        if (context.mounted) {
+                          Navigator.pushNamed(context, "/dashboard");
+                        }
+                      } else {
+                        if (context.mounted) {
+                          ScaffoldMessenger(
+                            child: SnackBar(
+                              content: Text(response["msg"]),
+                            ),
+                          );
+                        }
+                      }
+                    }
                   },
                 ),
                 const Text(

@@ -186,21 +186,25 @@ class _DashboardPersonalData extends StatelessWidget {
               labelTxt: "Email",
               initialValue: "jhondoe@email.cl",
               enabled: false,
+              onChange: (value) {},
             ),
             TextInput(
               labelTxt: "Rut",
               initialValue: "xx.xxx.xxx-x",
               enabled: false,
+              onChange: (value) {},
             ),
             TextInput(
               labelTxt: "Fecha de ingreso",
               initialValue: "20/04/2024",
               enabled: false,
+              onChange: (value) {},
             ),
             TextInput(
               labelTxt: "Rol dentro del sistema",
               initialValue: "Administrador",
               enabled: false,
+              onChange: (value) {},
             )
           ],
         ));
@@ -234,26 +238,31 @@ class _DashboardCooperativaData extends StatelessWidget {
               labelTxt: "Razón Social",
               initialValue: "Cooperativa de prueba SpA",
               enabled: false,
+              onChange: (value) {},
             ),
             TextInput(
               labelTxt: "Comuna",
               initialValue: "Comuna",
               enabled: false,
+              onChange: (value) {},
             ),
             TextInput(
               labelTxt: "Región",
               initialValue: "Región",
               enabled: false,
+              onChange: (value) {},
             ),
             TextInput(
               labelTxt: "Sigla",
               initialValue: "Cooperativa de prueba",
               enabled: false,
+              onChange: (value) {},
             ),
             TextInput(
               labelTxt: "Web",
               initialValue: "http://cooperativasdechile.cl",
               enabled: false,
+              onChange: (value) {},
             )
           ],
         ));

@@ -27,6 +27,7 @@ class Settings extends StatelessWidget {
         ),
       ),
       body: Container(
+        height: size.height,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         color: const Color(0xFFEDF1F3),
         child: SingleChildScrollView(
@@ -54,6 +55,7 @@ class _ChangeUserData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
         height: size.height * 0.4,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8), color: Colors.white),
@@ -61,7 +63,7 @@ class _ChangeUserData extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Recuperar contraseña",
+              "Modificar datos personales",
               style: TextStyle(
                   fontFamily: "Poppins",
                   fontSize: 18,
@@ -71,16 +73,19 @@ class _ChangeUserData extends StatelessWidget {
               labelTxt: "Nombre",
               icon: Icon(Icons.person),
               initialValue: "Jhon",
+              onChange: (value) {},
             ),
             TextInput(
               labelTxt: "Apellido",
               icon: Icon(Icons.person),
               initialValue: "Doe",
+              onChange: (value) {},
             ),
             TextInput(
               labelTxt: "Email",
               icon: Icon(Icons.email),
               initialValue: "jhondoe@email.cl",
+              onChange: (value) {},
             ),
             Button(valueBtn: "Actualizar", press: () {})
           ],
@@ -100,7 +105,8 @@ class _ChangePassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: size.height * 0.4,
-        margin: EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
+        margin: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8), color: Colors.white),
         child: Column(
@@ -117,16 +123,19 @@ class _ChangePassword extends StatelessWidget {
               labelTxt: "Contraseña actual",
               icon: Icon(Icons.lock),
               initialValue: "****",
+              onChange: (value) {},
             ),
             TextInput(
               labelTxt: "Nueva contraseña",
               icon: Icon(Icons.lock),
               initialValue: "****",
+              onChange: (value) {},
             ),
             TextInput(
               labelTxt: "Repetir nueva contraseña",
               icon: Icon(Icons.lock),
               initialValue: "****",
+              onChange: (value) {},
             ),
             Button(valueBtn: "Actualizar", press: () {})
           ],

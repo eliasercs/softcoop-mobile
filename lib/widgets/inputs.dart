@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class TextInput extends StatelessWidget {
   final String labelTxt;
@@ -6,6 +8,7 @@ class TextInput extends StatelessWidget {
   final Icon? icon;
   final bool? enabled;
   final String? initialValue;
+  final Function onChange;
 
   const TextInput(
       {super.key,
@@ -13,13 +16,17 @@ class TextInput extends StatelessWidget {
       this.placeholder,
       this.icon,
       this.enabled,
-      this.initialValue});
+      this.initialValue,
+      required this.onChange});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       autofocus: false,
       initialValue: initialValue,
+      onChanged: (value) {
+        onChange(value);
+      },
       decoration: InputDecoration(
           border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -40,5 +47,41 @@ class TextInput extends StatelessWidget {
           hintStyle:
               const TextStyle(color: Color(0xFF737373), fontFamily: "Poppins")),
     );
+  }
+}
+
+class CustomSwitch extends StatelessWidget {
+  const CustomSwitch(
+      {super.key,
+      this.initialValue,
+      required this.onChange,
+      required this.content});
+  final bool? initialValue;
+  final Function onChange;
+  final String content;
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
+    return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+      Switch(
+          inactiveTrackColor: const Color(0xFFE2294F),
+          activeTrackColor: Colors.green,
+          inactiveThumbColor: Colors.white,
+          activeColor: Colors.white,
+          value: initialValue ?? false,
+          onChanged: (value) {
+            onChange(value);
+          }),
+      SizedBox(
+        width: size.width * 0.75,
+        child: Text(
+          content,
+          textAlign: TextAlign.justify,
+          maxLines: 3,
+        ),
+      )
+    ]);
   }
 }
